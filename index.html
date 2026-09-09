@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Juego de adivinar películas a partir de escenas recreadas de forma original.">
+  <title>¿Qué película es?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">▶</span><span>CINE<span class="accent">QUIZ</span></span></div>
+      <div class="score-pill">Puntos <strong id="score">0</strong></div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">RETO CINÉFILO</p>
+        <h1>¿Qué película<br><span>es?</span></h1>
+        <p class="hero-copy">Mira una recreación visual de una escena peculiar, reconoce las pistas y demuestra cuánto cine tienes en la cabeza.</p>
+      </div>
+      <div class="film-reel" aria-hidden="true">
+        <div class="reel-hole h1"></div><div class="reel-hole h2"></div>
+        <div class="reel-hole h3"></div><div class="reel-hole h4"></div>
+        <div class="reel-center">★</div>
+      </div>
+    </section>
+
+    <section class="game-card" id="game">
+      <div class="game-meta">
+        <span id="questionNumber">ESCENA 1 / 8</span>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+
+      <div class="scene-wrap">
+        <div class="scene" id="scene" aria-label="Recreación visual de una escena">
+          <!-- Se rellena desde JavaScript -->
+        </div>
+        <div class="scene-caption" id="sceneCaption"></div>
+      </div>
+
+      <div class="clue-row">
+        <button class="hint-btn" id="hintBtn">💡 Mostrar pista</button>
+        <div class="hint" id="hint" hidden></div>
+      </div>
+
+      <div class="answer-area">
+        <label for="answer">Tu respuesta</label>
+        <div class="answer-line">
+          <input id="answer" type="text" autocomplete="off" placeholder="Escribe el título de la película..." maxlength="80">
+          <button class="check-btn" id="checkBtn">Comprobar <span>→</span></button>
+        </div>
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+      </div>
+
+      <div class="actions">
+        <button class="secondary-btn" id="skipBtn">No lo sé</button>
+        <button class="next-btn" id="nextBtn" disabled>Siguiente escena →</button>
+      </div>
+    </section>
+
+    <section class="rules">
+      <div><span>🎬</span><div><strong>8 escenas</strong><small>Una sola oportunidad por escena.</small></div></div>
+      <div><span>⭐</span><div><strong>10 puntos</strong><small>+5 si aciertas sin pista.</small></div></div>
+      <div><span>🧠</span><div><strong>Originales</strong><small>Las ilustraciones no usan fotogramas de películas.</small></div></div>
+    </section>
+
+    <section class="result-card" id="result" hidden>
+      <div class="result-icon">🏆</div>
+      <p class="eyebrow">PARTIDA TERMINADA</p>
+      <h2 id="finalTitle">¡Buen trabajo!</h2>
+      <p id="finalText"></p>
+      <button class="restart-btn" id="restartBtn">Jugar otra vez</button>
+    </section>
+
+    <footer>Hecho para jugar • Sin anuncios • Funciona directamente en GitHub Pages</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
